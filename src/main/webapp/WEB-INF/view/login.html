@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0;
+            width: 300px;
+            text-align: left;
+        }
+        .login-container img {
+            max-width: 300px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .login-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: none;
+            border-radius: 0;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #333;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <img src="/fuckmylife_war_exploded/resources/images/logo.png" alt="Logo">
+    <h2>Login</h2>
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+    <form th:action="@{/auth}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="remember-me">Remember Me:</label>
+        <input type="checkbox" id="remember-me" name="rememberMe"><br>
+
+        <button type="submit">Login</button>
+    </form>
+    <a th:href="@{/register}">Registration</a>
+</div>
+</body>
+</html>

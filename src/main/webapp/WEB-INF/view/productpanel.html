@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/admin-panel.css">
+</head>
+<body>
+<div class="admin-container">
+    <div th:replace="fragments/admin-header :: header"></div>
+
+    <main class="admin-main">
+        <section class="admin-section">
+            <h1>Manage Products</h1>
+            <div class="product-form">
+                <form th:action="@{/addProduct}" th:object="${product}" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" th:field="*{name}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" th:field="*{description}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="overview">Overview:</label>
+                        <input type="text" id="overview" th:field="*{overview}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" th:field="*{price}" required>
+                    </div>
+                    <div class="form-group form-group-row">
+                        <label for="xs">XS:</label>
+                        <input type="number" id="xs" th:field="*{size.xs}" min="0" placeholder="Quantity" required>
+                        <label for="s">S:</label>
+                        <input type="number" id="s" th:field="*{size.s}" min="0" placeholder="Quantity" required>
+                        <label for="m">M:</label>
+                        <input type="number" id="m" th:field="*{size.m}" min="0" placeholder="Quantity" required>
+                        <label for="l">L:</label>
+                        <input type="number" id="l" th:field="*{size.l}" min="0" placeholder="Quantity" required>
+                        <label for="xl">XL:</label>
+                        <input type="number" id="xl" th:field="*{size.xl}" min="0" placeholder="Quantity" required>
+                        <label for="xxl">XXL:</label>
+                        <input type="number" id="xxl" th:field="*{size.xxl}" min="0" placeholder="Quantity" required>
+                        <label for="xxxl">XXXL:</label>
+                        <input type="number" id="xxxl" th:field="*{size.xxxl}" min="0" placeholder="Quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image1">Image 1:</label>
+                        <input type="text" th:field="*{image.image1}" id="image1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image2">Image 2:</label>
+                        <input type="text" th:field="*{image.image2}" id="image2">
+                    </div>
+                    <div class="form-group">
+                        <label for="image3">Image 3:</label>
+                        <input type="text" th:field="*{image.image3}" id="image3">
+                    </div>
+                    <div class="form-group">
+                        <label for="image4">Image 4:</label>
+                        <input type="text" th:field="*{image.image4}" id="image4">
+                    </div>
+                    <button type="submit" class="btn">Add Product</button>
+                </form>
+            </div>
+
+            <div class="product-list">
+                <h2>Product List</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Overview</th>
+                        <th>Price</th>
+                        <th>XS</th>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>L</th>
+                        <th>XL</th>
+                        <th>XXL</th>
+                        <th>XXXL</th>
+                        <th>Image1</th>
+                        <th>Image2</th>
+                        <th>Image3</th>
+                        <th>Image4</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.description}"></td>
+                        <td th:text="${product.overview}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.size.xs}"></td>
+                        <td th:text="${product.size.s}"></td>
+                        <td th:text="${product.size.m}"></td>
+                        <td th:text="${product.size.l}"></td>
+                        <td th:text="${product.size.xl}"></td>
+                        <td th:text="${product.size.xxl}"></td>
+                        <td th:text="${product.size.xxxl}"></td>
+                        <td th:text="${product.image.image1}"></td>
+                        <td th:text="${product.image.image2}"></td>
+                        <td th:text="${product.image.image3}"></td>
+                        <td th:text="${product.image.image4}"></td>
+                        <td>
+                            <a th:href="@{/admin/editProduct/{id}(id=${product.id})}" class="btn edit-btn">Edit</a>
+                            <a th:href="@{/admin/deleteProduct/{id}(id=${product.id})}" class="btn delete-btn">Remove</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header Fragment</title>
+</head>
+<body>
+<header class="admin-header">
+    <div class="logo">
+        <img src="/fuckmylife_war_exploded/resources/images/admin-logo.png" alt="Logo">
+    </div>
+    <nav class="admin-nav">
+        <ul>
+            <li><a th:href="@{/admin/productmanager}">Products</a></li>
+            <li><a th:href="@{/admin/manageImages}">Images</a></li>
+            <li><a th:href="@{/admin/users}">Users</a></li>
+            <li><a th:href="@{/admin/orders-history}">History</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

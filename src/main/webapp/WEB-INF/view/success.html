@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Success</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Order Successful</h1>
+<div>
+    <p>Thank you for your order. Here are the details:</p>
+    <ul>
+        <li th:each="order : ${orderList.orders}">
+            <p>Product ID: <span th:text="${order.id}"></span></p>
+            <p>Size: <span th:text="${order.size}"></span></p>
+            <p>Amount: <span th:text="${order.amount}"></span></p>
+        </li>
+    </ul>
+</div>
+<div class = return>
+    <a th:href="@{/shop}">Return to Shop</a>
+</div>
+</body>
+</html>

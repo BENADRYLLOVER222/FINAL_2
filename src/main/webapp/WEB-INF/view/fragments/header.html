@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header Fragment</title>
+</head>
+<body>
+<header>
+    <div class="logo-pc">
+        <img src="/fuckmylife_war_exploded/resources/images/logo.png" alt="Logo">
+    </div>
+    <nav>
+        <ul class="menu">
+            <li id="menuOpen">
+                <button id="menuButton"><a href="#">☰ MENU</a></button>
+                <ul>
+                    <li><a th:href="@{/shop/main}">HOME</a></li>
+                    <li><a th:href="@{/shop}">SHOP</a></li>
+                    <li><a th:href="@{/shop/contact}">CONTACT</a></li>
+                    <li><a th:href="@{/shop/terms}">TERMS & INFO</a></li>
+                    <li><a th:href="@{/shop/cart}">CART</a></li>
+                    <li><a th:href="@{/logout}">LOGOUT</a></li>
+                </ul>
+            </li>
+            <button id="cartButton"><a th:href="@{/cart}">🛒 CART</a></button>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

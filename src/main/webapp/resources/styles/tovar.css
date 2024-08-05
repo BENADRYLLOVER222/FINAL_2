@@ -1,0 +1,304 @@
+	@media(min-width: 768px) and (max-width: 940px){
+
+	.container {
+	    width: 100%;
+	   /* border: 1px solid black; */
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: flex-end;
+	}
+}
+
+@media(min-width: 940px){
+
+.container {
+	    width: 940px;
+	   /* border: 1px solid black; */
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: flex-end;
+	}
+}
+@media(min-width: 768px) {
+
+	    .info img {
+	        width: 100px;
+	        height: auto;
+	        margin-right: 0;
+	    }
+
+	    .info {
+	    	justify-content: flex-start;
+	    	width:100%;
+	    	position: flex;
+	        margin-top: 20px;
+	        margin-left: 20px;
+	        display: flex;
+	        flex-direction: column;
+	    }
+
+	    .name {
+	    	margin-top: 20px;
+	        width: 65%;
+
+	        font-weight: bold;
+	    }
+
+		.name span{
+			font-size:18px;
+			margin: 0;
+			padding: 0;
+		}
+
+	    .description {
+	        display: flex;
+	        flex-wrap: wrap;
+	        width: 100%;
+	        margin-top: 20px;
+	        font-size:16px; /* добавляем отступ между описанием и ценой */
+	    }
+	    .price::before{
+	    	content: "\0024";
+	    	margin-right: 10px;
+	    }
+
+	    .price {
+	        display: flex;
+	        flex-wrap: wrap;
+	        font-size:20px;
+	        margin-top: 20px; /* добавляем отступ между ценой и кнопкой */
+	    }
+
+
+	    .info button {
+	        width: 15%;
+	        margin-top: 20px; /* добавляем отступ между кнопками */
+	    }
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.dropbtn {
+		border: 2px solid #000;
+		border-radius: 5px;
+		background: none;
+		padding: 10px 80px 10px 20px;
+		font-size: 12px;
+		cursor: pointer;
+		white-space: nowrap;
+		text-align: right;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {
+		background-color: #f1f1f1;
+	}
+
+	.show {
+		display: block;
+	}
+
+	    #addtocart {
+	        background-color: #000;
+	        color: #fff;
+	        padding: 10px 20px;
+	        font-size: 16px;
+	        border: none;
+	        cursor: pointer;
+	        width: 150px;
+	    }
+
+	    .imagesBox {
+	    	/*border: 1px solid black; */
+	        display: flex;
+	        flex-direction: row;
+	        justify-content: top;
+	        align-items: top;
+	        width: 50%;
+	        margin-bottom:20px;
+	    }
+
+	    .mainImage img {
+	        width: 100%;
+	        margin-right: 20px;
+	        display: block;
+	    }
+
+	    .mainImage{
+	    	transition: 1s;
+	    }
+
+	    .scale {
+	    	transform: scale(1.7);
+	    }
+
+	    .small_Images {
+	        width: 20%;
+	        display: flex;
+	        flex-direction: column;
+	        cursor: pointer;
+	}
+}
+
+@media(max-width: 768px){
+
+.container {
+	    width: 100%;
+	   /* border: 1px solid black; */
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: flex-end;
+	    flex-direction: column;
+	}
+
+	    .info img {
+	        width: 100px;
+	        height: auto;
+	    }
+
+	    .info {
+	    	justify-content: flex-start;
+	    	width:100%;
+	    	position: flex;
+	        margin-top: 20px;
+	        display: flex;
+	        flex-direction: column;
+	        margin-left:20px;
+	    }
+
+	    .name {
+	    	margin-top: 20px;
+	        width: 95%;
+	        font-size:32px;
+	        font-weight: bold;
+	    }
+
+	    .description {
+	        display: flex;
+	        flex-wrap: wrap;
+	        width: 95%;
+	        margin-top: 30px;
+	        font-size:16px;
+	        margin-bottom:80px; /* добавляем отступ между описанием и ценой */
+	    }
+	    .price::before{
+	    	content: "\0024";
+	    	margin-right: 10px;
+	    }
+
+	    .price {
+	        display: flex;
+	        flex-wrap: wrap;
+	        font-size:20px;
+	        margin-top: 20px; /* добавляем отступ между ценой и кнопкой */
+	    }
+
+
+	    .info button {
+	        width: 100%;
+	        margin-top: 20px; /* добавляем отступ между кнопками */
+
+	    }
+
+	    .dropdown {
+	        position: relative;
+	        display: inline-block;
+	        width:90%;
+	    }
+
+	    .dropbtn a {
+	        text-decoration: none;
+	        color: black;
+	        text-align: center;	    }
+
+	    .dropbtn {
+	    	padding: 0 20 20 0;
+	        border: 1px solid #000;
+	        background: none;
+	        font-size: 12px;
+	        cursor: pointer;
+	        text-align: center;
+	        padding: 10px 20px;
+
+	    }
+
+	    .dropdown-content {
+	        display: none;
+	        position: absolute;
+	        background-color: #fff;
+	        width:100%;
+	        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	        z-index: 1;
+	    }
+
+	    .dropdown-content a {
+	        color: black;
+	        padding: 12px 16px;
+	        text-decoration: none;
+	        display: block;
+	    }
+
+	    .dropdown-content a:hover {
+	        background-color: #f1f1f1;
+	    }
+
+	    .show {
+	        display: block;
+	    }
+
+	    #addtocart {
+	        background-color: #000;
+	        color: #fff;
+	        padding: 10px 20px;
+	        font-size: 16px;
+	        border: none;
+	        cursor: pointer;
+	        width: 150px;
+	    }
+
+	    .imagesBox {
+	    	/*border: 1px solid black; */
+	        display: flex;
+	        flex-direction: row;
+	        justify-content: top;
+	        align-items: top;
+	        width: 100%;
+	        margin-bottom:20px;
+	    }
+
+	    .mainImage img {
+	        width: 100%;
+	        margin-right: 20px;
+	        display: block;
+	    }
+
+	    .mainImage{
+	    	transition: 1s;
+	    }
+
+	    .small_Images {
+	        width: 20%;
+	        display: flex;
+	        flex-direction: column;
+	        cursor: pointer;
+	}
+}
+

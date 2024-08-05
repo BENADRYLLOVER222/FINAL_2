@@ -1,0 +1,58 @@
+.card{
+	width:220px;
+	min-height: 250px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: 2s;
+}
+
+.card:hover img{
+	opacity: 0.4;
+	transition: 0.3s;
+}
+
+.card img{
+	width:220px;
+}
+
+.card__top {
+	flex:0 0 220px;
+}
+
+.card__bottom{
+	flex: 1 0 auto;
+	text-align: center;
+}
+
+.card__price::after{
+	content: "\0024";
+}
+
+.card__title{
+	font-weight: bold;
+	font-size: 14.4px;
+	margin-right: 25px;
+	margin-left: 25px;
+}
+.card__price{
+	margin-top: 10px;
+}
+.card a{
+	text-decoration: none;
+}
+
+.container {
+	width:100%;
+	max-width: 926px;
+	margin: 0 auto;
+}
+
+.container__cards{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	width:100%;
+	grid-template-columns: repeat(auto-fill, 225px);
+}

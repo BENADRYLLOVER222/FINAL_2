@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/orders.css">
+</head>
+<body>
+<div class="admin-container">
+    <div th:replace="fragments/admin-header :: header"></div>
+
+    <main class="admin-main">
+        <section class="admin-section">
+            <h1>User Management</h1>
+            <div class="user-management-container">
+                <div class="column">
+                    <h2>Admins</h2>
+                    <form id="addAdmin" th:action="@{/admin/add-admin}" method="post">
+                    <div class="add-admin">
+                        <input type="text" name="username" id="admin-username" placeholder="Enter username">
+                        <button type = "submit" class="btn" id="add-admin-btn">Add Admin</button>
+                    </div>
+                    </form>
+                    <div class="admin-list">
+                        <div th:each="admin : ${admins}" class="admin-item">
+                            <form id="removeRole" th:action="@{/admin/remove-role}" method="post">
+                                <input type="hidden" name="username" th:value="${admin.username}">
+                            <p>Admin Username: <span th:text="${admin.username}"></span></p>
+                            <button th:attr="data-user-id=${admin.id}" class="btn remove-admin-btn">Remove Admin</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h2>Blacklist</h2>
+                    <form id="addBlacklist" th:action="@{/admin/add-blacklisted}" method="post">
+                    <div class="add-blacklist">
+                        <input type="text" name="username" id="blacklist-username" placeholder="Enter username">
+                        <button type="submit" class="btn" id="add-blacklist-btn">Add to Blacklist</button>
+                    </div>
+                    </form>
+                    <div class="blacklist">
+                        <div th:each="user : ${blacklistedUsers}" class="blacklist-item">
+                            <form id="removeRole" th:action="@{/admin/remove-role}" method="post">
+                                <input type="hidden" name="username" th:value="${user.username}">
+                            <p>Username: <span th:text="${user.username}"></span></p>
+                            <button th:attr="data-user-id=${user.id}" class="btn unblacklist-btn">Unban</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+</script>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #000;
+        color: #FFF;
+        font-family: Arial, sans-serif;
+    }
+    .admin-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid #FFF;
+    }
+    .logo img {
+        width: 100px;
+    }
+    .admin-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
+    .admin-nav a {
+        color: #FFF;
+        text-decoration: none;
+        padding: 10px;
+    }
+    .admin-nav .active {
+        border-bottom: 2px solid #FFF;
+    }
+    .admin-main {
+        padding: 20px 0;
+    }
+    .admin-section h1, .admin-section h2 {
+        border-bottom: 2px solid #FFF;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .user-management-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .column {
+        width: 45%;
+    }
+    .add-admin, .add-blacklist {
+        margin-bottom: 20px;
+    }
+    .add-admin input, .add-blacklist input {
+        padding: 10px;
+        margin-right: 10px;
+        width: calc(100% - 120px);
+    }
+    .admin-list, .blacklist {
+        border: 1px solid #FFF;
+        padding: 20px;
+    }
+    .admin-item, .blacklist-item {
+        margin-bottom: 10px;
+    }
+    .btn {
+        padding: 10px 20px;
+        background-color: #FFF;
+        color: #000;
+        border: none;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #555;
+        color: #FFF;
+    }
+</style>

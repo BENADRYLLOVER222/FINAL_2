@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+    <style>
+        header {
+            margin-top: 0px;
+        }
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 50px); /* 50px is an example header height, adjust as needed */
+        }
+        .error-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .error-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .error-container p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .error-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .error-container a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<div class="error-page">
+    <div class="error-container">
+        <h1>An Error Occurred</h1>
+        <div th:if="${error}" style="color: red">
+            <p th:text="${error}"></p>
+        </div>
+        <a th:href="@{/}">Return to Home</a>
+    </div>
+</div>
+</body>
+</html>

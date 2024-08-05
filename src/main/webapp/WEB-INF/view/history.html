@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/orders.css">
+</head>
+<body>
+<div class="admin-container">
+    <div th:replace="fragments/admin-header :: header"></div>
+    <main class="admin-main">
+        <section class="admin-section">
+            <h1>Orders</h1>
+            <div class="orders-container">
+                <div th:each="order : ${orders}" class="order-item">
+                    <p>Order ID: <span th:text="${order.id}"></span></p>
+                    <p>User ID: <span th:text="${order.user.id}"></span></p>
+                    <p>Username: <span th:text="${order.user.username}"></span></p>
+                    <div th:each="item : ${order.orders}">
+                        <p>Product ID: <span th:text="${item.id}"></span></p>
+                        <p>Size: <span th:text="${item.size}"></span></p>
+                        <p>Amount: <span th:text="${item.amount}"></span></p>
+                    </div>
+                    <div class="order-actions">
+                        <a th:href="@{'/admin/confirm-order/' + ${order.id}}">
+                            <button th:attr="data-order-id=${order.id}" class="btn done-button">Done</button></a>
+                        <a th:href="@{'/admin/add-to-blacklist/' + ${order.user.id}}">
+                            <button th:attr="data-user-id=${order.user.id}" class="btn blacklist-button">Add to Blacklist</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+</script>
+</body>
+</html>

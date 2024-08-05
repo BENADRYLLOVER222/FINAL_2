@@ -1,0 +1,98 @@
+       body {
+            background-color: #000;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+        }
+        .admin-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FFF;
+        }
+        .logo img {
+            width: 100px;
+        }
+        .admin-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .admin-nav a {
+            color: #FFF;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .admin-nav .active {
+            border-bottom: 2px solid #FFF;
+        }
+        .admin-main {
+            padding: 20px 0;
+        }
+        .admin-section h1, .admin-section h2 {
+            border-bottom: 2px solid #FFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .product-form {
+            margin-bottom: 40px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"], 
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #FFF;
+            background-color: #000;
+            color: #FFF;
+        }
+        .form-group input[type="file"] {
+            padding: 10px;
+            border: 1px solid #FFF;
+            background-color: #000;
+            color: #FFF;
+        }
+        .form-group.form-group-row {
+    display: flex;
+    gap: 10px;
+    width:750px; /* Промежуток между элементами */
+}
+
+.form-group.form-group-row input {
+    flex: 1; /* Растягиваем элементы по всей ширине контейнера */
+}
+        .btn {
+            padding: 10px 20px;
+            background-color: #FFF;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #555;
+            color: #FFF;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #FFF;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .edit-btn, .delete-btn {
+            margin-right: 10px;
+        }

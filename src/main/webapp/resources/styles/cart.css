@@ -1,0 +1,476 @@
+@media(min-width: 768px) and (max-width: 970px){
+
+  .container{
+  	margin-top:20px;
+	width:100%;
+	/* border:1px solid black; */
+	margin:0 auto;
+}
+}
+
+@media(min-width: 970px){
+
+  .container{
+  	margin-top:20px;
+	width:970px;
+	/* border:1px solid black; */
+	margin:0 auto;
+}
+
+}
+
+@media(min-width: 768px) {
+
+.cart-title{
+	/*border:1px solid green; */
+}
+.description button{
+	background: none;
+	border: none;
+}
+
+.common-table{
+	display: flex;
+	flex-direction: row;
+	width:50%;
+	/*border: 1px solid black; */
+	align-self: left;
+	margin-left: auto;
+	font-weight: bold;
+}
+.price-common{
+	justify-content: flex-start;
+	display: flex;
+	/*border:1px solid black; */
+	flex-grow: 1;
+}
+.quantity-common{
+	justify-content: center;
+	display: flex;
+	/*border:1px solid black; */
+	flex-grow: 1;
+}
+.total-common{
+	justify-content: flex-end;
+	display: flex;
+	/*border:1px solid black; */
+	flex-grow: 1;
+}
+
+.calc{
+	/*border:1px solid red; */
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	justify-content: center;
+}
+
+.calc p{
+	margin-top:0px;
+}
+
+.item-row-calc{
+	display: flex;
+	flex-direction: row;
+}
+.price::before{
+	content:"\0024";
+	margin-right: 10px;
+}
+.price{
+	
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	font-size: 16px;
+}
+
+.price span{
+	font-size: 16px;
+}
+.price p{
+	display: none;
+}
+
+
+.description a{
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}
+
+.quantity{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.quantity p{
+	display: none;
+}
+
+.quantity input{
+	padding: 10px;
+	width:33%;
+	margin-left:10px;
+}
+.total::before{
+ 	content: "\0024";
+ 	margin-right: 10px;
+}
+.total{
+	justify-content: flex-end;
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	font-size: 16px;
+}
+.total span{
+	font-size:16px;
+}
+.total p{
+	display: none;
+}
+
+.item-row{
+	width: 50%;
+}
+.image{
+}
+
+.image img{
+	width:150px;
+}
+
+.description{
+	width:200%;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+}
+.description p{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 0px;
+	margin-bottom: 15px;
+
+}
+
+.remove{
+	width: 30px;
+	text-align: right;
+	margin: 0 0 0 0;
+}
+
+.bottom-grid{
+	display: flex;
+}
+.item-row{
+	display: flex;
+
+}
+.right-block{
+	display: flex;
+  width:50%;
+  float:right;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.subtotal{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.subtotal span::before{
+	content: "\0024";
+	margin-right: 10px;
+
+}
+
+.subtotal span{
+	margin-left: 20px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	align-self: flex-end;
+}
+.sub-description{
+	display: flex;
+	align-self: flex-end;
+	margin-bottom: 15px;
+	text-align: right;
+
+}
+
+.checkout{
+	align-self: flex-end;
+}
+
+.checkout button{
+	border:none;
+	background: black;
+	color:#fff;
+	height: 40px;
+	width:125px;
+}
+.addnote button{
+	text-align: left;
+	margin-top:30px;
+	margin-bottom: 7px;
+	background: none;
+	border:none;
+}
+
+.addnote{
+	display: flex;
+	flex-direction: column;
+	width:50%;
+}
+.addnote textarea{
+	width:80%;
+	vertical-align: top;
+	border: 1px solid black;
+	height: 70px;
+}
+
+}
+
+@media(max-width: 768px) {
+
+	
+  .logo-mobile img {
+    width: 60%;
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+  }
+
+
+  .container{
+	width:90%;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+.cart-title{ 
+}
+.description button{
+	background: none;
+	border: none;
+}
+
+.common-table{
+	display: none;
+}
+
+
+.calc{
+	/*border:1px solid red; */
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	justify-content: center;
+}
+
+.calc p{
+	margin-top:0px;
+}
+
+.item-row-calc{
+	display: flex;
+	flex-direction: column;
+	border:;
+}
+.price span::before{
+	content:"\0024";
+}
+.price span{
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.price{
+	margin-left:10px;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+		/*border:1px solid black; */
+		flex-grow: 1;
+}
+
+.price p{
+	display: flex;
+	justify-content: flex-start;
+	font-size: 12px;
+
+}
+
+.description a{
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}
+
+.quantity{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	/*border:1px solid black; */
+	width:33%;
+	justify-content: center;
+}
+
+.quantity p{
+	display: flex;
+	font-size: 12px;
+}
+
+.quantity input{
+	margin-top: 10px;
+	padding: 10px;
+	width:50%;
+}
+.total{
+	justify-content: center;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+		/*border:1px solid black; */
+		flex-grow: 1;
+} 
+.total span::before{
+	content:"\0024";
+}
+.total span{
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.total p{
+	display: flex;
+	justify-content: flex-start;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.item-row{
+	width: 100%;
+}
+.image{
+}
+
+.image img{
+	width:150px;
+	/*border:1px solid black; */
+}
+
+.description{
+	display: flex;
+	flex-direction: column;
+	/*border:1px solid blue; */
+	margin-left: 0;
+	justify-content: center;
+	width:50%;
+}
+.description p{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 0px;
+	margin-bottom: 15px;
+
+}
+
+.remove{
+	width: 60px;
+}
+
+.bottom-grid{
+	display: flex;
+	flex-direction: column;
+}
+.item-row{
+	display: flex;
+	align-items: center;
+
+}
+.right-block{
+	display: flex;
+  /*border:1px solid black; */
+  width:100%;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.subtotal{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+.subtotal span::before{
+	content:"\0024";
+	margin-right: 10px;
+}
+.subtotal span{
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+.sub-description{
+	display: flex;
+	align-self: flex-end;
+	margin-bottom: 15px;
+	text-align: right;
+	font-size: 16px;
+
+}
+
+.checkout{
+	align-self: flex-end;
+	margin-bottom: 0px;
+}
+
+.checkout button{
+	border:none;
+	background: black;
+	color:#fff;
+	height: 40px;
+	width:125px;
+}
+.addnote button{
+	text-align: left;
+	margin-top:50px;
+	margin-bottom: 7px;
+	background: none;
+	border:none;
+}
+
+.addnote{
+	display: flex;
+	flex-direction: column;
+	/*border:1px black solid; */
+	width:50%;
+}
+.addnote textarea{
+	width:100%;
+	vertical-align: top;
+	height: 70px;
+}
+
+}
+
+span, p, button{
+	font-size: 16px;
+}
+
+.price span,
+.total span,
+.price span::before,
+.total span::before,
+.subtotal span,
+.subtotal span::before{
+	font-weight: bold;
+}

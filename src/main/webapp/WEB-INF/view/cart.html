@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/fuckmylife_war_exploded/resources/styles/cart.css">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="page-content">
+    <div class="logo-mobile">
+        <img src="images/logo.png" alt="Logo">
+    </div>
+    <div class="container">
+        <div class="cart-title">
+            <h1>Your Cart</h1>
+        </div>
+        <!-- Title -->
+        <div class="common-table">
+            <div class="price-common">
+                <p>Price</p>
+            </div>
+            <div class="quantity-common">
+                <p>Quantity</p>
+            </div>
+            <div class="total-common">
+                <p>Total</p>
+            </div>
+        </div>
+        <!-- Items -->
+        <form id="orderForm" th:action="@{/shop/checkout}" method="post">
+            <div class="item-row-calc" th:each="entry : ${cart}">
+                <div class="item-row">
+                    <div class="image">
+                        <img th:src="@{${entry.key.image.image1}}" alt="Product Image">
+                    </div>
+                    <div class="description">
+                        <input type="hidden" th:name="orders[__${entryStat.index}__].id" th:value="${entry.key.id}">
+                        <input type="hidden" th:name="orders[__${entryStat.index}__].size" th:value="${entry.value}">
+                        <p><a th:href="@{/product/{id}(id=${entry.key.id})}" th:text="${entry.key.name}">Product Name</a></p>
+                        <p th:text="${entry.value}"></p>
+
+                        <a th:href="@{'/shop/removefromcart/' + ${entry.key.id}}" class="remove" data-product-id="${entry.key.id}" style="font-family: 'balls', sans-serif;">
+                            <span>Remove</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="calc">
+                    <div class="price">
+                        <p>Price</p>
+                        <span th:text="${#numbers.formatDecimal(entry.key.price, 2, 2)}">200</span>
+                    </div>
+                    <div class="quantity">
+                        <p>Quantity</p>
+                        <input type="number" class="quantityInput" th:name="orders[__${entryStat.index}__].amount" value="1" min="1" style="font-family: 'balls', sans-serif;">
+                    </div>
+                    <div class="total">
+                        <p>Total</p>
+                        <span class="totalSpan" th:text="${#numbers.formatDecimal(entry.key.price * 1, 2, 2)}">200</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom grid --> 
+            <div class="bottom-grid">
+                <div class="addnote">
+                    <button id="addNoteButton" type="button" style="font-family: 'balls', sans-serif;">Add a note to your order</button>
+                    <textarea id="noteTextarea" name="orderNote" style="display: none;"></textarea>
+                </div>
+                <div class="right-block">
+                    <div class="subtotal">
+                        <p>Subtotal:</p>
+                        <span id="subtotalSpan">0</span> <!-- Display subtotal here -->
+                    </div>
+                    <div class="sub-description">
+                        <span><i>Shipping, taxes, and discounts will be calculated at checkout.</i></span>
+                    </div>
+                    <div class="checkout">
+                        <button id="checkoutButton" type="submit">CHECK OUT</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <a href="#">INSTAGRAM</a>
+    <span> / </span>
+    <a href="#">TELEGRAM</a>
+    <span> / </span>
+    <a href="#">TWITTER</a>
+    <span> / </span>
+    <a href="#">YOUTUBE</a>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/fuckmylife_war_exploded/resources/js/menu.js"></script>
+<script src="/fuckmylife_war_exploded/resources/js/total_one.js"></script>
+<script>
+    $(document).ready(function() {
+        // Показать/скрыть поле для заметок
+        $('#addNoteButton').on('click', function(e) {
+            e.preventDefault();
+            $('#noteTextarea').toggle();
+        });
+
+        // Обработчик для кнопки Checkout
+        $('#checkoutButton').on('click', function() {
+            var orderList = [];
+            $('.item-row-calc .item-row').each(function(index, element) {
+                var order = {
+                    id: $(element).find('input[type=hidden]').val(),
+                    size: $(element).find('input[type=hidden][name$=".size"]').val(),
+                    amount: $(element).find('.quantityInput').val()
+                };
+                orderList.push(order);
+            });
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'orderList',
+                value: JSON.stringify(orderList)
+            }).appendTo('#orderForm');
+        });
+
+        // Обработчик для кнопки Remove
+        $('.remove').on('click', function(e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+            console.log('Removing product with ID:', productId); // Debug log
+            $.ajax({
+                url: 'http://localhost:1666/fuckmylife_war_exploded/shop/removefromcart',
+                type: 'POST',
+                data: { productId: productId },
+                success: function(response) {
+                    console.log('Remove successful:', response); // Debug log
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Failed to remove item from cart:', status, error); // Debug log
+                    alert('Failed to remove item from cart.');
+                }
+            });
+        });
+</script>
+</body>
+</html>
+

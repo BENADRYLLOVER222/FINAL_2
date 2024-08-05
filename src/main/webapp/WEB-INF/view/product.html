@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+	<link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/tovar.css">
+	<title th:text="${product.name}">Product Page</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="page-content">
+	<div class="logo-mobile">
+		<img src="/fuckmylife_war_exploded/resources/images/logo.png" alt="Logo">
+	</div>
+	<div class="container">
+		<div class="imagesBox">
+			<div class="mainImage" onclick="toggleScale(this)">
+				<img th:src="@{${product.image.image1}}" alt="Product Image">
+			</div>
+			<div class="small_Images">
+				<img th:if="${product.image.image1 != null}" th:src="@{${product.image.image1}}" onclick="changeMainImage(this)" th:alt="*{product.image.image1}">
+				<img th:if="${product.image.image2 != null}" th:src="@{${product.image.image2}}" onclick="changeMainImage(this)" th:alt="*{product.image.image2}">
+				<img th:if="${product.image.image3 != null}" th:src="@{${product.image.image3}}" onclick="changeMainImage(this)" th:alt="*{product.image.image3}">
+				<img th:if="${product.image.image4 != null}" th:src="@{${product.image.image4}}" onclick="changeMainImage(this)" th:alt="*{product.image.image4}">
+			</div>
+		</div>
+		<div class="info">
+			<div class="logo">
+				<img src="/fuckmylife_war_exploded/resources/images/logo.png" alt="Logo">
+			</div>
+			<div class="name">
+				<span th:text="${product.name}">YOUR PRODUCT NAME</span>
+			</div>
+			<span class="price" th:text="${product.price} + ' USD'"></span>
+
+			<form id="addToCartForm" th:action="@{/shop/add-to-cart}" method="post">
+				<input type="hidden" name="productId" th:value="${product.id}">
+				<input type="hidden" name="size" id="selectedSize">
+
+				<div class="sizeList-wrap">
+					<div id="sizeList" class="dropdown">
+						<button id="sizeButton" class="dropbtn" type="button">Pick size</button>
+						<div id="sizeDropdown" class="dropdown-content">
+							<a th:if="${product.size.xs != 0}" href="#" onclick="setSize(event, 'X-Small')">X-Small</a>
+							<a th:if="${product.size.s != 0}" href="#" onclick="setSize(event, 'Small')">Small</a>
+							<a th:if="${product.size.m != 0}" href="#" onclick="setSize(event, 'Medium')">Medium</a>
+							<a th:if="${product.size.l != 0}" href="#" onclick="setSize(event, 'Large')">Large</a>
+							<a th:if="${product.size.xl != 0}" href="#" onclick="setSize(event, 'X-Large')">X-Large</a>
+							<a th:if="${product.size.xxl != 0}" href="#" onclick="setSize(event, 'XX-Large')">XX-Large</a>
+							<a th:if="${product.size.xxxl != 0}" href="#" onclick="setSize(event, 'XXX-Large')">XXX-Large</a>
+						</div>
+					</div>
+				</div>
+				<button type="submit" id="addtocart" class="add to cart">ADD TO CART</button>
+			</form>
+
+			<div class="description">
+				<p th:text="${product.description}">FAUX LEATHER ALL OVER QUILTED ZIP UP BOMBER JACKET WITH FRONT WELT POCKETS, RIBBED CUFFS, AND RIBBED BOTTOM HEM.</p>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<a href="#">INSTAGRAM</a>
+		<span>/</span>
+		<a href="#">TELEGRAM</a>
+		<span>/</span>
+		<a href="#">TWITTER</a>
+		<span>/</span>
+		<a href="#">YOUTUBE</a>
+	</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/fuckmylife_war_exploded/resources/js/menu.js"></script>
+<script src="/fuckmylife_war_exploded/resources/js/jquery-3.7.1.min.js"></script>
+<script src="/fuckmylife_war_exploded/resources/js/imagePicker.js"></script>
+<!--<script src="/fuckmylife_war_exploded/resources/js/sizeDrop.js"></script> -->
+<script src="/fuckmylife_war_exploded/resources/js/scale.js"></script>
+<script>
+	document.getElementById('sizeButton').addEventListener('click', function() {
+		document.getElementById('sizeDropdown').classList.toggle('show');
+	});
+
+	function setSize(event, size) {
+		event.preventDefault();
+		document.getElementById('selectedSize').value = size;
+		document.getElementById('sizeButton').innerText = size;
+	}
+
+	// Закрываем выпадающее меню при клике вне его области
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName('dropdown-content');
+			for (var i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	};
+
+	document.getElementById('addToCartForm').addEventListener('submit', function(event) {
+		if (!document.getElementById('selectedSize').value) {
+			event.preventDefault();
+			alert('Please select a size.');
+		}
+	});
+</script>
+</body>
+</html>

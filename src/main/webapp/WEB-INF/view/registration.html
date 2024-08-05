@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .registration-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0;
+            width: 300px;
+            text-align: left;
+        }
+        .registration-container img {
+            max-width: 300px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        .registration-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .registration-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+        }
+        .registration-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: none;
+            border-radius: 0;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .registration-container button:hover {
+            background-color: #333;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="registration-container">
+    <img src="/fuckmylife_war_exploded/resources/images/logo.png" alt="Logo">
+    <h1>Registration</h1>
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+    <form th:action="@{/registration}" method="post" th:object="${user}">
+        <div>
+            <label for="login">Username:</label>
+            <input type="text" id="login" th:field="*{username}" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" required />
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+        <a th:href="@{/login}">Login</a>
+    </form>
+</div>
+</body>
+</html>

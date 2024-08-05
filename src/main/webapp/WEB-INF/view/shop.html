@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/shop.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+	<!---------------------------------------------------------PAGE CONTENT START-------------------------------------------------->
+	<div class = "page-content">
+			<div class = "logo-mobile">
+				<img src = "https://i.ibb.co/bHGs4qR/logo.png">
+			</div>
+		<section class="cards">
+			<div class="container container__cards">
+				<div th:each="product : ${products}" class="card">
+					<!-- CARD START -->
+					<div class="card__top">
+						<a th:href="@{'/shop/' + ${product.id}}" class="card__img">
+							<img th:src="@{${product.image.image1}}" alt="Product Image">
+						</a>
+						<div class="card__bottom">
+							<div class="card__title">
+								<a th:href="@{'/shop/' + ${product.id}}" th:text="${product.name}">Product Name</a>
+							</div>
+							<div class="card__price">
+								<a th:href="@{'/shop/' + ${product.id}}" th:text="${product.price}">Price</a>
+							</div>
+						</div>
+					</div>
+					<!-- CARD END -->
+				</div>
+			</div>
+		</section>
+
+	<!----------------------FOOTER---------------------->
+		<footer>
+		<a href="#"> INSTAGRAM </a>
+		<span> / </span>
+        <a href="#"> TELEGRAM </a>
+        <span> / </span>
+        <a href="#"> TWITTER </a>
+        <span> / </span>
+        <a href="#"> YOUTUBE </a>
+        <span></span>
+	</footer>
+</div>	<!--------------------------------------------------PAGE CONTENT END-------------------------------------------------->
+<!---------------------------------------------------------SCRIPTS-------------------------------------------------->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/spring128_war_exploded/resources/js/menu.js"></script>
+</body>
+</html>

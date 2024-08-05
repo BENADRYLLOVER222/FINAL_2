@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/admin-panel.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+        }
+        .admin-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FFF;
+        }
+        .logo img {
+            width: 100px;
+        }
+        .admin-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .admin-nav a {
+            color: #FFF;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .admin-nav .active {
+            border-bottom: 2px solid #FFF;
+        }
+        .admin-main {
+            padding: 20px 0;
+        }
+        .admin-section h1, .admin-section h2 {
+            border-bottom: 2px solid #FFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #FFF;
+            background-color: #000;
+            color: #FFF;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #FFF;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #555;
+            color: #FFF;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #FFF;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .delete-btn {
+            margin-right: 10px;
+        }
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .image-preview img {
+            width: 100px;
+            height: auto;
+            border: 1px solid #FFF;
+        }
+    </style>
+</head>
+<body>
+<div class="admin-container">
+    <div th:replace="fragments/admin-header :: header"></div>
+
+    <main class="admin-main">
+        <section class="admin-section">
+            <h1>Manage Images</h1>
+            <div class="image-form">
+                <form th:action="@{/admin/addImage}" method="post">
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL:</label>
+                        <input type="text" id="imageUrl" name="imageUrl" required>
+                    </div>
+                    <button type="submit" class="btn">Add Image</button>
+                </form>
+            </div>
+
+            <div class="image-list">
+                <h2>Image List</h2>
+                <div class="image-preview">
+                    <div th:each="image : ${images}">
+                        <img th:src="${image.url}" alt="Image">
+                        <a th:href="@{/admin/deleteImage/{id}(id=${image.id})}" class="btn delete-btn">Remove</a>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>URL</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="image : ${images}">
+                        <td th:text="${image.id}"></td>
+                        <td th:text="${image.url}"></td>
+                        <td>
+                            <a th:href="@{/admin/deleteImage/{id}(id=${image.id})}" class="btn delete-btn">Remove</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

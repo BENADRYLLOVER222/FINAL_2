@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/header.css">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/slider.css">
+    <link rel="stylesheet" href="/fuckmylife_war_exploded/resources/styles/mini-logo-main.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<!---------------------------------------------------------PAGE CONTENT-------------------------------------------------->
+	<div class = "page-content">
+			<div class = "logo-mobile">
+				<img src = "images/logo.png">
+			</div>
+           <div class="image-slider swiper-container">
+    	    <div class = "swiper-button-prev"> </div>
+        	<div class = "swiper-button-next"> </div>
+        <div class="image-slider__wrapper swiper-wrapper">
+            <div class="image-slider_slide swiper-slide" th:each="image : ${images}"> <!--FIRST SLIDE-->
+                <div class="image-slider__image">
+                    <img th:src="${image.url}">
+                </div>
+            </div>
+        </div><!--SWIPER-WRAPPER-->
+    </div><!--SWIPER-CONTAINER--> 
+    <div class="company">
+    	<img src="/fuckmylife_war_exploded/resources/images/company.png" alt="company">
+	</div>
+	<!---------------------------------------------------------FOOTER-------------------------------------------------->
+	<footer>
+		<a href="#"> INSTAGRAM </a>
+		<span> / </span>
+        <a href="#"> TELEGRAM </a>
+        <span> / </span>
+        <a href="#"> TWITTER </a>
+        <span> / </span>
+        <a href="#"> YOUTUBE </a>
+        <span></span>
+	</footer>
+</div>
+<!---------------------------------------------------------SCRIPTS-------------------------------------------------->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/fuckmylife_war_exploded/resources/js/menu.js"></script>
+    <script src="/fuckmylife_war_exploded/resources/js/slider.js"></script>
+</body>
+</html>

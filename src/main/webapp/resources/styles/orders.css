@@ -1,0 +1,62 @@
+body {
+    background-color: #000;
+    color: #FFF;
+    font-family: Arial, sans-serif;
+}
+.admin-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #FFF;
+}
+.logo img {
+    width: 100px;
+}
+.admin-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.admin-nav a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 10px;
+}
+.admin-nav .active {
+    border-bottom: 2px solid #FFF;
+}
+.admin-main {
+    padding: 20px 0;
+}
+.admin-section h1, .admin-section h2 {
+    border-bottom: 2px solid #FFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.orders-container {
+    margin-bottom: 40px;
+}
+.order-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #FFF;
+}
+.order-actions {
+    margin-top: 10px;
+}
+.btn {
+    padding: 10px 20px;
+    background-color: #FFF;
+    color: #000;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #555;
+    color: #FFF;
+}
